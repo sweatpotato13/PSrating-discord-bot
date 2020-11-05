@@ -1,1 +1,1 @@
-# nodejs-typescript-boilerplate
+# PSrating-discord-bot

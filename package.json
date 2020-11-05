@@ -38,7 +38,7 @@
     "dev": "yarn prettier && ts-node-dev --poll --respawn --transpile-only src/main.ts --trace-sync-io",
     "test": "jest",
     "lint": "eslint \"{src,test}/**/*.ts\" --fix",
-    "prettier": "prettier --write --config .prettierrc ./src///*.ts && prettier --write --config .prettierrc ./test///*.ts",
+    "prettier": "prettier --write --config .prettierrc ./src/**/*.ts && prettier --write --config .prettierrc ./test///*.ts",
     "build": "tsc",
     "prebuild": "rimraf ./dist"
   },
@@ -46,10 +46,12 @@
   "license": "MIT",
   "dependencies": {
     "@odanado/atcoder-api": "^0.0.2",
+    "@typeit/discord": "4.0.8",
     "ajax": "^0.0.4",
     "axios": "^0.21.0",
     "cheerio": "^1.0.0-rc.3",
     "codeforces-api": "^1.0.3",
+    "discord.js": "12.4.1",
     "jquery": "^3.5.1",
     "node-fetch": "^2.6.1",
     "tslib": "^2.0.1",
