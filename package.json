@@ -45,18 +45,9 @@
   "author": "CuteWisp <sweatpotato13@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@odanado/atcoder-api": "^0.0.2",
     "@typeit/discord": "4.0.8",
-    "ajax": "^0.0.4",
-    "axios": "^0.21.0",
-    "cheerio": "^1.0.0-rc.3",
-    "codeforces-api": "^1.0.3",
     "discord.js": "12.4.1",
-    "jquery": "^3.5.1",
-    "node-fetch": "^2.6.1",
-    "tslib": "^2.0.1",
-    "xmldom": "^0.4.0",
-    "xpath": "^0.0.32"
+    "node-fetch": "^2.6.1"
   },
   "volta": {
     "node": "12.18.3",
