@@ -46,7 +46,7 @@
   "license": "MIT",
   "dependencies": {
     "@typeit/discord": "4.0.8",
-    "discord.js": "12.4.1",
+    "discord.js": "12.5.1",
     "node-fetch": "^2.6.1"
   },
   "volta": {
