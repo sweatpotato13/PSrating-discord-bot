@@ -14,7 +14,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^26.0.16",
+    "@types/jest": "^26.0.19",
     "@types/jquery": "^3.5.4",
     "@types/jsdom": "^16.2.5",
     "@types/node": "^14.14",
