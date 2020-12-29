@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.19",
-    "@types/jquery": "^3.5.4",
+    "@types/jquery": "^3.5.5",
     "@types/jsdom": "^16.2.5",
     "@types/node": "^14.14",
     "@typescript-eslint/eslint-plugin": "^4.0.0",
