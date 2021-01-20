@@ -45,7 +45,7 @@
   "author": "CuteWisp <sweatpotato13@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@typeit/discord": "4.0.8",
+    "@typeit/discord": "4.0.9",
     "discord.js": "12.5.1",
     "node-fetch": "^2.6.1"
   },
