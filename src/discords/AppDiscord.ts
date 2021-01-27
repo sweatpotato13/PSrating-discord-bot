@@ -82,6 +82,43 @@ export abstract class AppDiscord {
         console.log(obj);
     }
 
+    @Command("tc :handles")
+    private async callTcUserInfo(message: CommandMessage) {
+        const handles = message.args.handles;
+        const obj = await info.getTopcoderInfo(handles);
+        let idx = 0;
+        for (idx = 0; idx < obj["ratingSummary"].length; idx++) {
+            if (obj["ratingSummary"][idx].name === "Algorithm") {
+                break;
+            }
+        }
+        const embed = new dc.MessageEmbed()
+            .setColor("#0099ff")
+            .setTitle(`${handles}'s Topcoder Info`)
+            .setURL("https://www.topcoder.com/members/" + handles)
+            .addFields(
+                { name: "Handle", value: handles },
+                {
+                    name: "CreateAt",
+                    value: obj["memberSince"],
+                    inline: true,
+                },
+                {
+                    name: "Country",
+                    value: obj["country"],
+                    inline: true,
+                },
+                {
+                    name: "Rating",
+                    value: obj["ratingSummary"][idx]["rating"],
+                    inline: true,
+                }
+            )
+            .setTimestamp();
+        message.channel.send({ embed: embed });
+        console.log(obj);
+    }
+
     @CommandNotFound()
     notFoundA(command: CommandMessage) {
         command.reply("Command not found");
