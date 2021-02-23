@@ -19,11 +19,7 @@ export async function getCodeforcesInfo(
 export async function getAtCoderInfo(
     handle: string
 ): Promise<IAtcoderUserInfo> {
-    // https://github.com/miozune/AtCoderUsersAPI
-    const response = await fetch(
-        "https://us-central1-atcoderusersapi.cloudfunctions.net/api/info/username/" +
-            handle
-    );
+    const response = await fetch("http://localhost:5000/v1.0/ac/" + handle);
     const obj = await response.json();
     return obj;
 }

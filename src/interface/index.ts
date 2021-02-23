@@ -1,18 +1,14 @@
 export interface IAtcoderUserInfo {
-    data: IAtCoderData;
+    userinfo: IData[];
 }
-
-export interface IAtCoderData {
-    birth_year: number;
-    competitions: number;
-    country: string;
-    formal_country_name: string;
-    highest_rating: number;
+export interface IData {
+    birth: number;
+    highest: number;
+    match: number;
     rank: number;
     rating: number;
-    updated: string;
-    user_color: string;
-    wins: number;
+    user: string;
+    win: number;
 }
 
 export interface ICodeforceUserInfo {

@@ -55,27 +55,12 @@ export abstract class AppDiscord {
                 { name: "Handle", value: handles },
                 {
                     name: "Birth Year",
-                    value: obj["data"]["birth_year"],
+                    value: obj.userinfo[0].birth,
                     inline: true,
                 },
-                {
-                    name: "Country",
-                    value: obj["data"]["formal_country_name"],
-                    inline: true,
-                },
-                {
-                    name: "Competitions",
-                    value: obj["data"]["competitions"],
-                    inline: true,
-                },
-                { name: "Wins", value: obj["data"]["wins"], inline: true },
-                {
-                    name: "Highest Rating",
-                    value: obj["data"]["highest_rating"],
-                    inline: true,
-                },
-                { name: "Rank", value: obj["data"]["rank"], inline: true },
-                { name: "Rating", value: obj["data"]["rating"], inline: true }
+                { name: "Wins", value: obj.userinfo[0].win, inline: true },
+                { name: "Rank", value: obj.userinfo[0].rank, inline: true },
+                { name: "Rating", value: obj.userinfo[0].rating, inline: true }
             )
             .setTimestamp();
         message.channel.send({ embed: embed });
