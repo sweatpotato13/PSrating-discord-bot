@@ -4,6 +4,7 @@ import {
     CommandMessage,
     CommandNotFound,
 } from "@typeit/discord";
+import { levelPng } from "../asset/levelpng";
 import * as info from "../getInfo";
 const dc = require("discord.js");
 const embed = new dc.MessageEmbed().addField("Rating", 0);
@@ -96,6 +97,69 @@ export abstract class AppDiscord {
                 {
                     name: "Rating",
                     value: obj["ratingSummary"][idx]["rating"],
+                    inline: true,
+                }
+            )
+            .setTimestamp();
+        message.channel.send({ embed: embed });
+        console.log(obj);
+    }
+
+    @Command("sa :handles")
+    private async callSolvedAcUserInfo(message: CommandMessage) {
+        const handles = message.args.handles;
+        const obj = await info.getSolvedAcInfo(handles);
+        const level = obj.level;
+        const prefix = [
+            "Bronze",
+            "Silver",
+            "Gold",
+            "Platinum",
+            "Diamond",
+            "Ruby",
+            "Master",
+        ];
+        const roman = ["I", "II", "III", "IV", "V"];
+        const level_string =
+            level > 0
+                ? `${prefix[Math.floor((level - 1) / 5)]} ${
+                      roman[4 - ((level - 1) % 5)]
+                  }`
+                : "Unrated";
+        let class_string = obj.class.toString();
+        for (let i = 0; i < obj.class_decoration; i++) {
+            class_string += "+";
+        }
+        const embed = new dc.MessageEmbed()
+            .setColor("#0099ff")
+            .setTitle(`${handles}'s Solved.ac Info`)
+            .setURL("https://solved.ac/profile/" + handles)
+            .setThumbnail(levelPng[level])
+            .addFields(
+                { name: "Handle", value: handles },
+                {
+                    name: "Rank",
+                    value: level_string,
+                    inline: true,
+                },
+                {
+                    name: "Rating",
+                    value: obj.rating,
+                    inline: true,
+                },
+                {
+                    name: "Class",
+                    value: class_string,
+                    inline: true,
+                },
+                {
+                    name: "Solved",
+                    value: obj.solved,
+                    inline: true,
+                },
+                {
+                    name: "Contribute",
+                    value: obj.vote_count,
                     inline: true,
                 }
             )

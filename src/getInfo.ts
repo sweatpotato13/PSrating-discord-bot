@@ -2,6 +2,7 @@ import * as fetch from "node-fetch";
 import {
     IAtcoderUserInfo,
     ICodeforceUserInfo,
+    ISolvedAcData,
     ITopcoderUserInfo,
 } from "./interface";
 
@@ -31,4 +32,12 @@ export async function getTopcoderInfo(
     const response = await fetch("http://api.topcoder.com/v2/users/" + handle);
     const obj = await response.json();
     return obj;
+}
+
+export async function getSolvedAcInfo(
+    handle: string
+): Promise<ISolvedAcData> {
+    const response = await fetch("https://api.solved.ac/v2/users/show.json?id=" + handle);
+    const obj = await response.json();
+    return obj.result.user[0];
 }
