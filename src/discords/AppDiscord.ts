@@ -15,7 +15,7 @@ export abstract class AppDiscord {
     private async callCfUserInfo(message: CommandMessage) {
         const handles = message.args.handles;
         const obj = await info.getCodeforcesInfo(handles);
-        let avatar = obj["result"][0]["avatar"];
+        let avatar = obj.result[0].avatar;
         while (avatar.charAt(0) === "/") {
             avatar = avatar.substring(1);
         }
@@ -25,17 +25,17 @@ export abstract class AppDiscord {
             .setURL("https://codeforces.com/profile/" + handles)
             .setThumbnail("http://" + avatar)
             .addFields(
-                { name: "Handle", value: obj["result"][0]["handle"] },
-                { name: "Rank", value: obj["result"][0]["rank"], inline: true },
+                { name: "Handle", value: obj.result[0].handle },
+                { name: "Rank", value: obj.result[0].rank, inline: true },
                 {
                     name: "Rating",
-                    value: obj["result"][0]["rating"],
+                    value: obj.result[0].rating,
                     inline: true,
                 },
-                { name: "MaxRank", value: obj["result"][0]["maxRank"] },
+                { name: "MaxRank", value: obj.result[0].maxRank },
                 {
                     name: "MaxRating",
-                    value: obj["result"][0]["maxRating"],
+                    value: obj.result[0].maxRating,
                     inline: true,
                 }
             )
@@ -73,8 +73,8 @@ export abstract class AppDiscord {
         const handles = message.args.handles;
         const obj = await info.getTopcoderInfo(handles);
         let idx = 0;
-        for (idx = 0; idx < obj["ratingSummary"].length; idx++) {
-            if (obj["ratingSummary"][idx].name === "Algorithm") {
+        for (idx = 0; idx < obj.ratingSummary.length; idx++) {
+            if (obj.ratingSummary[idx].name === "Algorithm") {
                 break;
             }
         }
@@ -86,17 +86,17 @@ export abstract class AppDiscord {
                 { name: "Handle", value: handles },
                 {
                     name: "CreateAt",
-                    value: obj["memberSince"],
+                    value: obj.memberSince,
                     inline: true,
                 },
                 {
                     name: "Country",
-                    value: obj["country"],
+                    value: obj.country,
                     inline: true,
                 },
                 {
                     name: "Rating",
-                    value: obj["ratingSummary"][idx]["rating"],
+                    value: obj.ratingSummary[idx].rating,
                     inline: true,
                 }
             )
