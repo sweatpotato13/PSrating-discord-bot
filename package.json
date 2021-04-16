@@ -33,7 +33,7 @@
     "ts-jest": "^26.5.4",
     "ts-node-dev": "^1.1.1",
     "tsutils": "^3.21.0",
-    "typescript": "^4.1.5"
+    "typescript": "^4.2.4"
   },
   "scripts": {
     "dev": "yarn prettier && ts-node-dev --poll --respawn --transpile-only src/main.ts --trace-sync-io",
