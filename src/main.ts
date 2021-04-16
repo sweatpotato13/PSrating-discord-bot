@@ -1,5 +1,5 @@
 import { Client } from "@typeit/discord";
-import conf from "../config.json";
+import conf from "../config.example.json";
 
 export class Main {
     private static _client: Client;
