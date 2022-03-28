@@ -48,7 +48,7 @@
   "dependencies": {
     "@typeit/discord": "4.0.9",
     "discord.js": "12.5.3",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   },
   "volta": {
     "node": "12.18.3",
